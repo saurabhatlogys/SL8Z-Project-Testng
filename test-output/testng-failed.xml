@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="SL8Z.SL8Z_Project_Testng.Create_New_Search">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- SL8Z.SL8Z_Project_Testng.Create_New_Search -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
