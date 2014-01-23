@@ -1,4 +1,4 @@
-﻿package SL8Z.SL8Z_Project_Testng;
+package SL8Z.SL8Z_Project_Testng;
 
 import java.util.concurrent.TimeUnit;
 
