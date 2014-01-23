@@ -1,4 +1,4 @@
-package SL8Z.SL8Z_Project_Testng;
+﻿package SL8Z.SL8Z_Project_Testng;
 
 import java.util.concurrent.TimeUnit;
 
@@ -49,7 +49,7 @@ public class Create_New_Search {
 	  driver.findElement(By.xpath("//a[@id='ui-id-2']")).click();
 	  Reporter.log("Clicked on 2nd Tab");
 	  // Position Title
-	  driver.findElement(By.xpath("//input[@id='title']")).sendKeys("Test Automated Post 3");
+	  driver.findElement(By.xpath("//input[@id='title']")).sendKeys("Test Automated Post 4");
 	  Reporter.log("Entered Position Title");
 	  // Position Metro Area 
 	  //driver.findElement(By.xpath("//input[@id='location_metro_area']")).sendKeys("ban");
