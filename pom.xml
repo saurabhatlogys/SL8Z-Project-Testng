@@ -31,21 +31,45 @@
       	<configuration>
       	<suiteXmlFiles>
       	<suiteXmlFile>testng.xml</suiteXmlFile>
-      	</suiteXmlFiles></configuration>
+      	</suiteXmlFiles>
+      	 <!-- Setting properties for test execution -->
+     <properties>
+     <!-- Setting ReportNG listeners -->
+         <property>
+           <name>listener</name>
+           <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+         </property>
+     </properties>
+      	</configuration>
       </plugin>
     </plugins>
   </build>
   <dependencies>
+   
   	<dependency>
   		<groupId>org.testng</groupId>
   		<artifactId>testng</artifactId>
   		<version>6.8.7</version>
   	</dependency>
+  	
   	<dependency>
   		<groupId>org.seleniumhq.selenium</groupId>
   		<artifactId>selenium-java</artifactId>
   		<version>2.37.1</version>
   	</dependency>
   	
+  	<dependency>
+   <groupid>com.google.inject</groupid>
+   <artifactid>guice</artifactid>
+   <version>3.0</version>
+   <scope>test</scope>
+  </dependency>
+  
+  <dependency>
+   <groupid>org.uncommons</groupid>
+   <artifactid>reportng</artifactid>
+   <version>1.1.4</version>
+  </dependency>
+  
   </dependencies>
 </project>
