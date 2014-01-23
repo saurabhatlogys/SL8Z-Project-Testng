@@ -206,7 +206,7 @@ public class Create_New_Search {
   @AfterTest
   public void afterTest() {
 	  driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
-	  driver.close();
+	  driver.quit();
   }
 
 }
