@@ -4,12 +4,15 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverBackedSelenium;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.thoughtworks.selenium.DefaultSelenium;
 
 public class Create_New_Search {
 	
@@ -52,9 +55,12 @@ public class Create_New_Search {
 	  driver.findElement(By.xpath("//input[@id='title']")).sendKeys("Test Automated Post 10");
 	  Reporter.log("Entered Postion Title");
 	  // Position Metro Area 
+	  DefaultSelenium sel = new WebDriverBackedSelenium(driver,"http://ec2-54-237-74-229.compute-1.amazonaws.com");
+	    sel.type("//input[@id='location_metro_area']", "ban");
+	    sel.fireEvent("//input[@id='location_metro_area']", "keydown");
 	  //driver.findElement(By.xpath("//input[@id='location_metro_area']")).sendKeys("ban");
-	  Thread.sleep(8000);
-	  driver.findElement(By.xpath("//input[@id='location_metro_area']")).click();
+	  //Thread.sleep(3000);
+	  //driver.findElement(By.xpath("//li[2]/div/input")).click();
 	  // Reports to
 	  driver.findElement(By.xpath("	//input[@id='reports_to']")).sendKeys("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ae");
 	  Reporter.log("Entered Reports to");
@@ -185,8 +191,10 @@ public class Create_New_Search {
 	  driver.findElement(By.xpath("//a[@id='ui-id-9']")).click();
 	  Reporter.log("Clicked on Activate Search Tab");
 	  driver.findElement(By.xpath("//div[3]/div/div/span/button")).click();
-	  Reporter.log("Clicked on Activate Search Button"); 
-	  Thread.sleep(8000);
+	  Reporter.log("Clicked on Activate Search Button");
+	  Thread.sleep(2000);
+	  driver.findElement(By.xpath("//div[5]/div/form/div/div[2]/div[2]/div/span/button")).click();
+	  Thread.sleep(4000);
 	  }
   
 	  catch(Exception ex)
