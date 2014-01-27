@@ -2,7 +2,7 @@
   
   <test name="Create New Search">
     <classes>
-      <class name="SL8Z.SL8Z_Project_Testng.Create_New_Search"> </class>
+      <class name="com.SL8Z.testcases.Create_New_Search"></class>
     </classes>
   </test>  
   </suite>
