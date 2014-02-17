@@ -1,1 +1,10 @@
-SL8Z\SL8Z_Project_Testng\Create_New_Search.class
+com\SL8Z\base\TestBase.class
+com\SL8Z\testcases\Create_New_Search.class
+com\SL8Z\utility\TestUtil.class
+com\SL8Z\testcases\Verify_Quick_Preview_Buttons.class
+com\SL8Z\utility\Xls_Reader.class
+com\SL8Z\testcases\Verify_Client_Side_Validation.class
+com\SL8Z\testcases\Verify_Engagement_Dashboard_Page_Links.class
+com\SL8Z\testcases\Verify_Server_Side_Validation.class
+com\SL8Z\testcases\Verify_Placement_Fee.class
+com\SL8Z\testcases\Verfiy_Search.class

@@ -11,14 +11,16 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.*;
 import org.testng.annotations.*;
+
 import com.SL8Z.utility.Xls_Reader;
+
 
 public class TestBase {
 	
 	
 	public static Properties config = null;
 	public static Properties OR = null;
-	public WebDriver wbDv = null;
+	public static WebDriver wbDv = null;
 	public static EventFiringWebDriver driver = null;
 	public static Xls_Reader datatable = null;
 	public static boolean loggedIn = false;
@@ -40,7 +42,7 @@ public class TestBase {
 			
 			datatable = new Xls_Reader(System.getProperty("user.dir")+"\\src\\test\\java\\com\\SL8Z\\xls\\Controller.xlsx");
 			
-			// checking the type of browser
+			 // checking the type of browser
 			if(config.getProperty("browserType").equalsIgnoreCase("Firefox")){
 				
 				wbDv = new FirefoxDriver();
@@ -59,7 +61,7 @@ public class TestBase {
 				wbDv = new ChromeDriver();
 				}
 			
-			driver = new EventFiringWebDriver(wbDv);
+             driver = new EventFiringWebDriver(wbDv);
 			
 			// putting an implicit wait after every Action or Event
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -75,7 +77,8 @@ public class TestBase {
 	
 	@BeforeTest
 	public void clearCookies(){
-		driver.manage().deleteAllCookies();
+		
+					driver.manage().deleteAllCookies();            
 	}
 	
 	

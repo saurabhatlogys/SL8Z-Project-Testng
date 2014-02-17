@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Verify Client Side Validation"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="338.420">
+  <properties />
+  
+  
+            <testcase name="VerifyClientSideValidation" time="338.420" classname="com.SL8Z.testcases.Verify_Client_Side_Validation" />
+      
+</testsuite>
