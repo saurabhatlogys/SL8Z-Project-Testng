@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="141.910">
+           time="62.961">
   <properties />
   
   
-            <testcase name="VerifyEngagementDashboardPageLinks" time="141.910" classname="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links" />
+            <testcase name="VerifyEngagementDashboardPageLinks" time="62.961" classname="com.SL8Z.testcases.Verify_Engagement_Dashboard_Page_Links" />
       
 </testsuite>

@@ -18,21 +18,23 @@ public class Create_New_Search extends TestBase {
 		
 		if(TestUtil.isSkip("Test_CreateNewSearch"))
 		throw new SkipException("Runmode set to No");
-		else
-		{
-			//Navigate to Home Page
-			TestUtil.SL8Z_Homepage();
-			
-			//Log into the application
-			TestUtil.Login();	  
-		}
+		
 	}
 	
 	@Test (dataProvider ="getData")
 	public void CreateNewSearch(String PositionTitle)
 	{
+		//Navigate to Home Page
+		TestUtil.SL8Z_Homepage();
+		
+		//Log into the application
+		TestUtil.Login();	
+		
 	 //Create New Search
 	 TestUtil.Create_New_Search(PositionTitle);
+	 
+	//Logout from the application
+	 TestUtil.logout();
 	}
 	
 	@DataProvider

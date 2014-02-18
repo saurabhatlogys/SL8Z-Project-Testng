@@ -1046,6 +1046,7 @@ public static void sleep(int intSeconds){
 				if((free_post%2)!=0)
 				{
 					driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td[6]/button[2]")).click();
+					Reporter.log("Clicked on "+post_title);
 					
 					//Verifying OnHold Position
 					Assert.assertTrue(TestUtil.click("btn_Confirm_OnHold"),"Confirm button does not working");
@@ -1190,7 +1191,7 @@ public static void sleep(int intSeconds){
 				{
 				post_title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
 				driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td[6]/button")).click();
-				
+			    Reporter.log("Clicked on "+post_title);
 				//Verifying Freeze Action 
 				Assert.assertTrue(TestUtil.click("btn_Confirm_Freeze"),"Confirm button does not exist");
 				Reporter.log("Clicked on Freeze Button");
@@ -1210,8 +1211,12 @@ public static void sleep(int intSeconds){
 			   row_Engage_Cancel=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
 			  driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Engage_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title);
 			  Reporter.log("Verified "+ post_title +"  is cancelled");
+			  
+			  //Click on Active Tab
 			  Assert.assertTrue(TestUtil.click("tab_Active"),"Active tab does not working");
+			  Reporter.log("Clicked on Active tab");
 			  engage_post=engage_post-1;
+			  
 				}
 				
 				else
@@ -1338,11 +1343,15 @@ public static void sleep(int intSeconds){
 		{
 			WebElement element=driver.findElement(By.id("FreeTable"));
 			 List<WebElement> rowCollection=element.findElements(By.xpath("id('FreeTable')/tbody/tr"));
+			 List<WebElement> row_Engage;
+			 String Position_Id=null;
 			 int free_post=rowCollection.size();
-			 if(free_post>0)
+			 while(free_post>0)
 			 {
 				 String post_title=driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td/span/a")).getText();
 				 driver.findElement(By.xpath("//table[@id='FreeTable']/tbody/tr["+free_post+"]/td/span/a")).click();
+				 Position_Id=TestUtil.getObject("Position_Id").getText();
+				 Reporter.log("clicked on "+post_title);
 				 
 				 //Click on edit button
 				 Assert.assertTrue(TestUtil.click("btn_edit"),"Edit button does not working");
@@ -1357,6 +1366,7 @@ public static void sleep(int intSeconds){
 				   driver.switchTo().window(newTab);
 				   
 				   //Verify Edit button
+				   TestUtil.isObjPresent("Title", 10);
 	                Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("New Job Posting"),"Edit button does not navigate to new job posting page ");
 					Reporter.log("Verified edit button  navigates to new job posting page");
 				    driver.close(); 
@@ -1365,7 +1375,6 @@ public static void sleep(int intSeconds){
 				  //Click on View button
 					 Assert.assertTrue(TestUtil.click("btn_View"),"View button does not working");
 					 Reporter.log("Clicked on edit button");
-					 TestUtil.sleep(10);
 					 
 				 //Switching to new window tab and verifying view button
 					 handles = driver.getWindowHandles();
@@ -1375,17 +1384,99 @@ public static void sleep(int intSeconds){
 					 driver.switchTo().window(newTab);
 					   
 				 //Verify view button
+					 TestUtil.isObjPresent("Title", 10);
 		             Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("View Position"),"View button does not navigate to View Position page ");
 				     Reporter.log("Verified view button  navigates to View Position page");
 					 driver.close(); 
 					 driver.switchTo().window(current);
-					    
+					 if((free_post%2)!=0)
+					 {
 				 //Click on Engage button
 					Assert.assertTrue(TestUtil.click("btn_engage"),"Engage button does not working");
 					Reporter.log("Clicked on Engage button");
 				    
-					driver.navigate().back();
+					//Click on Next Button
+					Assert.assertTrue(TestUtil.click("btn_Next"),"Next button does not working");
+					Reporter.log("Clicked on Next Button");
 					
+					//Fill up Billing Information
+					
+					//Enter First Name
+					Assert.assertTrue(TestUtil.setText("PP_Firstname", "Saurabh"));
+					Reporter.log("Entered First Name");
+					
+					//Enter Last Name
+					Assert.assertTrue(TestUtil.setText("PP_Lastname", "Gupta"));
+					Reporter.log("Entered Last Name");
+					
+					//Enter Address 1
+					Assert.assertTrue(TestUtil.setText("PP_StreetAddress", "ABC"));
+					Reporter.log("Entered Address 1");
+					
+					//Enter Address 2
+					Assert.assertTrue(TestUtil.setText("PP_StreetAddress1", "ABC"));
+					Reporter.log("Entered Address 2");
+					
+					//Enter City
+					Assert.assertTrue(TestUtil.setText("PP_City", "Delhi"));
+					Reporter.log("Entered  City");
+					
+					//Enter State
+					Assert.assertTrue(TestUtil.setText("PP_State", "Delhi"));
+					Reporter.log("Entered  State");
+					
+					//Enter Country
+					Assert.assertTrue(TestUtil.setText("PP_Country", "India"));
+					Reporter.log("Entered  Country");
+					
+					//Enter Zip Code
+					Assert.assertTrue(TestUtil.setText("PP_ZipCode", "110026"));
+					Reporter.log("Entered  Zip Code");
+					
+					//Enter Card Number
+					Assert.assertTrue(TestUtil.setText("PP_CardNumber", config.getProperty("Card_Number")));
+					Reporter.log("Entered  Card Number");
+					
+					//Select Month
+					Assert.assertTrue(TestUtil.selectValueInDropDown("Select_Month", config.getProperty("Month")));
+					Reporter.log("Selected Month");
+					
+					//Select Year
+					Assert.assertTrue(TestUtil.selectValueInDropDown("Select_Year", config.getProperty("Year")));
+					Reporter.log("Selected Year");
+					
+					//Enter Security Code
+					Assert.assertTrue(TestUtil.setText("PP_Security_Code", config.getProperty("Security_Code")));
+					Reporter.log("Entered Security Code");
+					
+					//Click on Next Button
+					Assert.assertTrue(TestUtil.click("btn_PP_Next"),"Next button does not working");
+					Reporter.log("Clicked on Next Button");
+					
+					//Click on Place order Button
+					Assert.assertTrue(TestUtil.click("btn_Place_Order"),"Place Order Button does not working");
+					Reporter.log("Clicked on Place Order Button");
+					
+					//Verify Engage Position
+					Assert.assertTrue(TestUtil.getObject("Secure_Checkout").getText().equalsIgnoreCase("secure checkout"));
+					
+					//Click on Dashboard Link
+					Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
+					Reporter.log("Clicked on Dashboard Link");
+					
+					//Counting number of rows in engaged position table
+					element=driver.findElement(By.id("EngagedTable"));
+					row_Engage=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
+					
+	                driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Engage.size()+"]/td/span/a")).click();
+			        Assert.assertTrue(TestUtil.getObject("Position_Id").getText().equalsIgnoreCase(Position_Id));
+			        Reporter.log("Verified "+post_title+" is Engaged");
+			        
+			        driver.navigate().back();
+			       free_post=free_post-1; 
+				  }
+				 else
+				 {
 				//Click on OnHold button
 					Assert.assertTrue(TestUtil.click("btn_onhold"),"On Hold button does not working");
 					Reporter.log("Clicked on OnHold button");
@@ -1416,11 +1507,132 @@ public static void sleep(int intSeconds){
 					 
 					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title));
 					Reporter.log("Verified "+ post_title + " is Cancelled");
-			               
+					
+					//Click on Active Tab
+					 Assert.assertTrue(TestUtil.click("tab_Active"),"Active tab does not working");
+					 Reporter.log("Clicked on Active tab");
+		             free_post=free_post-1;
 			              }
-			  
 			 }
-		
+			 
+			    element=driver.findElement(By.id("EngagedTable"));
+				rowCollection=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
+				int engage_post =rowCollection.size();
+				String post_title=null;
+				String Complete=null;
+				List<WebElement> row_Complete;
+				
+				//Counting number of rows in engaged position table
+				
+
+				while(engage_post>0)
+				{
+					post_title=driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).getText();
+					driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+engage_post+"]/td/span/a")).click();
+				    Reporter.log("Clicked on "+post_title);
+				    
+					 //Click on edit button
+					 Assert.assertTrue(TestUtil.click("btn_edit"),"Edit button does not working");
+					 Reporter.log("Clicked on edit button");
+					 TestUtil.sleep(10);
+					 
+					  //Switching to new window tab and verifying edit button
+					   Set<String> handles = driver.getWindowHandles();
+					   String current = driver.getWindowHandle();
+					   handles.remove(current);
+					   String newTab = handles.iterator().next();
+					   driver.switchTo().window(newTab);
+					   
+					   //Verify Edit button
+					   TestUtil.isObjPresent("Title", 10);
+		                Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("New Job Posting"),"Edit button does not navigate to new job posting page ");
+						Reporter.log("Verified edit button  navigates to new job posting page");
+					    driver.close(); 
+					    driver.switchTo().window(current);
+					    
+					  //Click on View button
+						 Assert.assertTrue(TestUtil.click("btn_View"),"View button does not working");
+						 Reporter.log("Clicked on edit button");
+						 
+					 //Switching to new window tab and verifying view button
+						 handles = driver.getWindowHandles();
+						 current = driver.getWindowHandle();
+						 handles.remove(current);
+						 newTab = handles.iterator().next();
+						 driver.switchTo().window(newTab);
+						   
+					 //Verify view button
+						 TestUtil.isObjPresent("Title", 10);
+			             Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase("View Position"),"View button does not navigate to View Position page ");
+					     Reporter.log("Verified view button  navigates to View Position page");
+						 driver.close(); 
+						 driver.switchTo().window(current);
+						 
+						//Click on Freeze button
+						 
+							Assert.assertTrue(TestUtil.click("btn_freeze"),"Freeze button does not working");
+							Reporter.log("Clicked on Freeze button");
+						
+						//Verify Freeze Button
+							TestUtil.sleep(4);
+							Assert.assertTrue(TestUtil.getObject("btn_freeze").getText().equalsIgnoreCase("unfreeze"),"Position does not freeze");
+							Reporter.log("Verified Position is freeze");
+							
+					    //Click on Unfreeze button
+							Assert.assertTrue(TestUtil.click("btn_freeze"),"Unfreeze button does not working");
+							Reporter.log("Clicked on unfreeze button");	
+						    
+						 
+					if((engage_post%2)!=0)
+					{
+				 
+					//Click on Cancel Button
+					Assert.assertTrue(TestUtil.click("btn_cancel"),"Cancel button does not working");
+					Reporter.log("Clicked on cancel button");
+					
+					//Verify Cancel Position
+					Assert.assertTrue(TestUtil.click("btn_cancel_continue"),"Confirm button does not working");
+					Reporter.log("Clicked on Confirm Cancel button");
+							 
+					 List<WebElement> row_Cancel;
+					 String cancel=TestUtil.getObject("tab_Cancelled").getText().replaceAll("\\d+\\s+", "");
+				    Assert.assertTrue(cancel.equalsIgnoreCase("Cancelled"),post_title+" does not Cancelled");	
+				    
+				    element=driver.findElement(By.id("EngagedTable"));
+					row_Cancel=element.findElements(By.xpath("id('EngagedTable')/tbody/tr"));
+					 
+					Assert.assertTrue(driver.findElement(By.xpath("//table[@id='EngagedTable']/tbody/tr["+row_Cancel.size()+"]/td/span")).getText().equalsIgnoreCase(post_title));
+					Reporter.log("Verified "+ post_title + " is Cancelled");
+					
+			       }
+					else
+					{
+						//Click on Complete button
+						Assert.assertTrue(TestUtil.click("btn_complete"),"Complete button does not working");
+						Reporter.log("Clicked on complete button");
+						
+						//Verify Complete Position
+						Assert.assertTrue(TestUtil.click("btn_confirm_continue"),"Confirm button does not working");
+						
+						Complete=TestUtil.getObject("completed_position").getText();
+					    Assert.assertTrue(Complete.equalsIgnoreCase("Completed position"),post_title+" does not Completed");	
+					    Assert.assertTrue(TestUtil.getObject("Title").getText().equalsIgnoreCase(post_title));
+				
+						Reporter.log("Verified "+ post_title + " is Completed");
+						
+						//Click on Dashboard Link
+						Assert.assertTrue(TestUtil.click("Lnk_Dashboard"),"Dashboard link is not working");
+						Reporter.log("Clicked on Dashboard Link");
+						
+					}
+					
+					//Click on Active Tab
+					 Assert.assertTrue(TestUtil.click("tab_Active"),"Active tab does not working");
+					 Reporter.log("Clicked on Active tab");
+					 
+					 engage_post=engage_post-1;
+				}
+		}
 		
 	public static boolean isSkip(String testCase){
 		

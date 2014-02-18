@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Verify Corresponding Numbers"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="72.014">
+  <properties />
+  
+  
+            <testcase name="VerifyCorrespondingNumbers" time="72.014" classname="com.SL8Z.testcases.Verify_Corresponding_Numbers" />
+      
+</testsuite>

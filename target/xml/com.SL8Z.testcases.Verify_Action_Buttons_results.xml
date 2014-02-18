@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Verify Action Buttons"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="83.793">
+  <properties />
+  
+  
+            <testcase name="VerifyActionButtons" time="83.793" classname="com.SL8Z.testcases.Verify_Action_Buttons" />
+      
+</testsuite>

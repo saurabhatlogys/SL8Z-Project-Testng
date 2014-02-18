@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="74.025">
+           time="54.916">
   <properties />
   
   
-            <testcase name="VerifyPlacementFee" time="74.025" classname="com.SL8Z.testcases.Verify_Placement_Fee" />
+            <testcase name="VerifyPlacementFee" time="54.916" classname="com.SL8Z.testcases.Verify_Placement_Fee" />
       
 </testsuite>

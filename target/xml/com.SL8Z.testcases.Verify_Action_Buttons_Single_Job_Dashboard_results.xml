@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Verify Action Buttons Single Job Dashboard"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="48.167">
+  <properties />
+  
+  
+            <testcase name="VerifyActionButtonsSingleJobDashboard" time="48.167" classname="com.SL8Z.testcases.Verify_Action_Buttons_Single_Job_Dashboard" />
+      
+</testsuite>

@@ -3,16 +3,12 @@
            tests="2"
            failures="0"
            errors="0"
-           skipped="2"
-           time="0.001">
+           skipped="0"
+           time="172.104">
   <properties />
   
-            <testcase name="isSkipped" time="0.0" classname="com.SL8Z.testcases.Create_New_Search">
-          <skipped />
-    </testcase>
-            <testcase name="CreateNewSearch" time="0.0" classname="com.SL8Z.testcases.Create_New_Search">
-          <skipped />
-    </testcase>
   
-  
+            <testcase name="CreateNewSearch" time="63.855" classname="com.SL8Z.testcases.Create_New_Search" />
+                <testcase name="CreateNewSearch" time="108.249" classname="com.SL8Z.testcases.Create_New_Search" />
+      
 </testsuite>

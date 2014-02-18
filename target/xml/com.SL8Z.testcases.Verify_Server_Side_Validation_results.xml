@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="188.756">
+           time="115.799">
   <properties />
   
   
-            <testcase name="VerifyServerSideValidation" time="188.756" classname="com.SL8Z.testcases.Verify_Server_Side_Validation" />
+            <testcase name="VerifyServerSideValidation" time="115.799" classname="com.SL8Z.testcases.Verify_Server_Side_Validation" />
       
 </testsuite>
