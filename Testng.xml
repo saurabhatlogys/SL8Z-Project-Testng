@@ -47,13 +47,7 @@
       <class name="com.SL8Z.testcases.Verify_Corresponding_Numbers"></class>
     </classes>
   </test> 
-  
-  <test name="Create New Search">
-    <classes>
-      <class name="com.SL8Z.testcases.Create_New_Search"></class>
-    </classes>
-  </test>  
-  
+ 
   <test name="Verify Corresponding Number Single Job Dashboard">
     <classes>
       <class name="com.SL8Z.testcases.Verify_Corresponding_Number_Single_Job_Dashboard"></class>
